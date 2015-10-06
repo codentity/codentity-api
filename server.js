@@ -4,8 +4,7 @@ let Hapi = require('hapi');
 let server = new Hapi.Server();
 
 server.connection({
-  port: process.env.PORT || 9010,
-  host: 'localhost'
+  port: process.env.PORT || 5000,
 });
 
 require('./packages/packages.router')(server);
