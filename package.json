@@ -4,7 +4,6 @@
   "description": "Public API for Codentity.io",
   "scripts": {
     "start": "nodemon server.js",
-    "test": "mocha test"
   },
   "repository": {
     "type": "git",
