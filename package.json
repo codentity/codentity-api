@@ -1,0 +1,30 @@
+{
+  "name": "codentity-api",
+  "version": "0.0.0-pre1",
+  "description": "Public API for Codentity.io",
+  "scripts": {
+    "start": "nodemon server.js",
+    "test": "mocha test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/codentity/codentity-api"
+  },
+  "author": "Jack Stevens <jack@applyr.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/codentity/codentity-api/issues"
+  },
+  "homepage": "https://github.com/codentity/codentity-api",
+  "dependencies": {
+    "codentity-packages": "codentity/codentity-packages",
+    "hapi": "^8.4.0",
+    "q": "^1.4.0"
+  },
+  "devDependencies": {
+    "eslint": "^1.6.0"
+  },
+  "engines": {
+    "node": "4.x"
+  }
+}
