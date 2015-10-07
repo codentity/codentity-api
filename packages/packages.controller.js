@@ -4,16 +4,12 @@ let Github = require('../lib/Github');
 
 module.exports = {
   getImage: function (request, reply) {
-    let github = new Github({
-      baseUrl: request.info.host
-    });
+    let github = getGithubInstance(request);
     var imageUrl = github.getImageUrl(request.params.id);
     reply.redirect(imageUrl);
   },
   getPackageInfo: function (request, reply) {
-    let github = new Github({
-      baseUrl: request.info.host
-    });
+    let github = getGithubInstance(request);
     github.getPackageConfig(request.params.id)
     .then(function (config) {
       reply(config);
@@ -24,10 +20,7 @@ module.exports = {
     });
   },
   list: function (request, reply) {
-    console.log(request.info.host);
-    let github = new Github({
-      baseUrl: request.info.host
-    });
+    let github = getGithubInstance(request);
     github.getPackages()
     .then(function (packages) {
       reply(packages)
@@ -39,3 +32,8 @@ module.exports = {
     });
   }
 };
+
+function getGithubInstance (request) {
+  var baseUrl = `${request.server.info.protocol}://${request.info.host}`;
+  return new Github({ baseUrl: baseUrl });
+}
