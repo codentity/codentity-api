@@ -14,7 +14,7 @@ module.exports = function (server) {
     handler: Controller.getPackageInfo
   });
   server.route({
-    path: '/packages/{id}/icon.png',
+    path: '/packages/{id}/icon',
     method: 'GET',
     handler: Controller.getImage
   });
