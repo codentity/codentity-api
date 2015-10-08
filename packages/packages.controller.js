@@ -28,7 +28,7 @@ module.exports = {
     })
     .catch(function (err) {
       reply({ message: err.message })
-      .code(err.code || 500);
+      .code(err.statusCode || 500);
     });
   }
 };
