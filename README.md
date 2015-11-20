@@ -1,6 +1,6 @@
 # codentity-api
 
-[![Circle CI](https://circleci.com/gh/codentity/codentity-api/tree/master.svg?style=svg&circle-token=1abd6c4ee9ce2636c402127cf6c1fccf64a47b45)](https://circleci.com/gh/codentity/codentity-api/tree/master)
+[![Build Status](https://travis-ci.org/codentity/codentity-api.svg?branch=master)](https://travis-ci.org/codentity/codentity-api)
 
 Public API for Codentity.io, available at [https://codentity.herokuapp.com](https://codentity.herokuapp.com)
 
@@ -26,4 +26,4 @@ To start the server, run:
 npm start
 ```
 
-**NOTE:** The server will run on port 9010 default.
+**NOTE:** The server will run on port 5000 default.
