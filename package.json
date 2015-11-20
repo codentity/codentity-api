@@ -1,6 +1,6 @@
 {
   "name": "codentity-api",
-  "version": "0.0.0-pre1",
+  "version": "0.1.0",
   "description": "Public API for Codentity.io",
   "scripts": {
     "start": "nodemon server.js",
