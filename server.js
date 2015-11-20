@@ -1,8 +1,8 @@
 'use strict';
 
-let Hapi = require('hapi');
-let server = new Hapi.Server();
-let packageJson = require('./package');
+const Hapi = require('hapi');
+const server = new Hapi.Server();
+const packageJson = require('./package');
 
 server.connection({
   port: process.env.PORT || 5000,
