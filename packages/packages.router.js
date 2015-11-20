@@ -1,6 +1,6 @@
 'use strict';
 
-let Controller = require('./packages.controller');
+const Controller = require('./packages.controller');
 
 module.exports = function (server) {
   server.route({

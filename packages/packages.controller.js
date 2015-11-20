@@ -1,6 +1,6 @@
 'use strict';
 
-let Github = require('../lib/Github');
+const Github = require('../lib/Github');
 
 module.exports = {
   getImage: function (request, reply) {
