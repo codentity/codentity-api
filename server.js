@@ -5,7 +5,7 @@ const server = new Hapi.Server();
 const packageJson = require('./package');
 
 server.connection({
-  port: process.env.PORT || 5000,
+  port: process.env.PORT || 5000
 });
 
 require('./packages/packages.router')(server);
