@@ -1,11 +1,12 @@
 'use strict';
 
 const Github = require('../lib/Github');
+const pkgJson = require('../package');
 
 module.exports = {
   getImage: function (request, reply) {
     let github = getGithubInstance(request);
-    var imageUrl = github.getImageUrl(request.params.id);
+    let imageUrl = github.getImageUrl(request.params.id);
     reply.redirect(imageUrl);
   },
   getPackageInfo: function (request, reply) {
@@ -14,10 +15,7 @@ module.exports = {
     .then(function (config) {
       reply(config);
     })
-    .catch(function (err) {
-      reply({ message: err.message })
-      .code(err.code || 500);
-    });
+    .catch(handleError(reply));
   },
   list: function (request, reply) {
     let github = getGithubInstance(request);
@@ -26,14 +24,25 @@ module.exports = {
       reply(packages)
       .header('total-items', packages.length);
     })
-    .catch(function (err) {
-      reply({ message: err.message })
-      .code(err.statusCode || 500);
-    });
+    .catch(handleError(reply));
   }
 };
 
+function handleError (reply) {
+  return function (err) {
+    reply({
+      statusCode: err.statusCode,
+      message: err.message
+    })
+    .code(err.statusCode || 500);
+  }
+}
+
 function getGithubInstance (request) {
-  var baseUrl = `${request.server.info.protocol}://${request.info.host}`;
-  return new Github({ baseUrl: baseUrl });
+  let baseUrl = `${request.server.info.protocol}://${request.info.host}`;
+  return new Github({
+    baseUrl: baseUrl,
+    token: process.env.GITHUB_TOKEN,
+    userAgent: process.env.GITHUB_USER_AGENT || pkgJson.name
+  });
 }

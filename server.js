@@ -1,7 +1,12 @@
 'use strict';
 
 const Hapi = require('hapi');
-const server = new Hapi.Server();
+const server = new Hapi.Server({
+  debug: {
+    request: ['error', 'uncaught']
+  }
+});
+
 const packageJson = require('./package');
 
 server.connection({
